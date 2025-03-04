@@ -1,8 +1,12 @@
+import PropertyListItem from "./PropertyListItem";
+
 const PropertyList = () => {
     return (
-        <div>
-            qwertyuiopñlhk 
-        </div>
+            <>
+                <PropertyListItem />
+                <PropertyListItem />
+                <PropertyListItem />
+            </>
     )
 }
 

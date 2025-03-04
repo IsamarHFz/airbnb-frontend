@@ -1,5 +1,4 @@
 import Categories from "./components/Categories";
-import SearchFilters from "./components/navbar/SearchFilters";
 import PropertyList from "./components/poperties/PropertyList";
 
 
