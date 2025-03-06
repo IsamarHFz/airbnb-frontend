@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 
+
 const inter = Inter ({subsets: ["latin"]})
 
 export const metadata: Metadata = {
@@ -15,6 +16,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const content = (
+      <p>Soy Isabel</p>
+  )
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -23,6 +27,7 @@ export default function RootLayout({
         <div className="pt-32">
           {children} 
         </div>
+
       </body>
     </html>
   );
