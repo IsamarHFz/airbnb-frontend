@@ -26,7 +26,7 @@ const ConversationDetail = () => {
 
                 <CustomButton 
                     onClick={() => console.log('clicked')}
-                    className="w-[45px] h-[45px] flex justify-center items-center p-2"
+                    className="w-[40px] h-[40px] flex justify-center items-center p-2"
                 >
                     <FaPaperPlane className="text-white text-lg" />
                 </CustomButton>
