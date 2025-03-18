@@ -6,7 +6,7 @@ import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignupModals";
 
 
-const inter = Inter ({subsets: ["latin"]})
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DjangoBnb",
