@@ -1,7 +1,10 @@
 import ReservationSideBar from "@/app/components/poperties/ReservationSideBar"
 import Image from "next/image"
 
-const PropertyDetailPage = () => {
+import apiService from "@/app/services/apiService"
+
+const PropertyDetailPage = async ({params}: { params: {id: string} }) => {
+    const property = await apiService.get(`/api/properties/${params.id}`)
     return (
         <main className="max-w-[1500px] mx-auto px-6 pb-6">
             <div className="w-full h-[64vh] mb-4 overflow-hidden rounded-xl relative">
@@ -15,36 +18,37 @@ const PropertyDetailPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <div className="py-6 pr-6 col-span-3">
-                    <h1 className="mb-4 text-4xl">Property name</h1>
+                    <h1 className="mb-4 text-4xl">{property.title}</h1>
                     <span className="mb-6 block text-lg text-gray-600">
-                        4 guests -2 bedrooms - 1 bathroom
+                        {property.guests} guests - {property.bedrooms} bedrooms - {property.bathrooms} bathrooms
                     </span>
 
                     <hr />
 
                     <div className="py-6 flex items-center space-x-4">
-                        <Image
-                            src="/profile.jpg"
-                            width={50}
-                            height={50} 
-                            className="rounded-full"
-                            alt="The user name"
-                        />
+                        {property.landlord.avatar_url && (
+                            <Image
+                                src={property.landlord.avatar_url}
+                                width={50}
+                                height={50} 
+                                className="rounded-full"
+                                alt="The user name"
+                            />
+                        )}
 
-                        <p><strong>Isabel HF</strong>is your host</p>
+                        <p><strong>{property.landlord.name}</strong>is your host</p>
                     </div>
 
                     <hr />
 
                     <p className="mt-6 text-lg">
-                    Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                    Django y Airbnb ...................................................
+                        {property.description}
                     </p>
                 </div>
 
-                    <ReservationSideBar />
-                {/* <div className="col-span-2">
-                </div> */}
+                    <ReservationSideBar 
+                        property={property}
+                    />
             </div>
         </main>
     )

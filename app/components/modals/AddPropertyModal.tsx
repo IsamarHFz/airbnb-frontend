@@ -8,8 +8,6 @@ import Categories from "../addproperty/Categories";
 import SelectCountry, {SelectCountryValue} from "../forms/SelectCountry";
 import apiService from "@/app/services/apiService";
 import { useRouter } from "next/navigation";
-import { strict } from "assert";
-import { error } from "console";
 
 const AddPropertyModal = () => {
     // STATES
